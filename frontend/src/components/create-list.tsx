@@ -101,7 +101,7 @@ const CreateList = () => {
                   <FormItem className="flex flex-col items-start">
                     <FormLabel className="pb-2">List Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="shadcn" {...field} />
+                      <Input placeholder="list Name" {...field} />
                     </FormControl>
                     <FormMessage className="text-red-600" />
                   </FormItem>
