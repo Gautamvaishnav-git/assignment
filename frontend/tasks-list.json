@@ -1,0 +1,42 @@
+{
+  "Cleaning": [
+    {
+      "id": 1,
+      "title": "cook",
+      "description": "cook dinner",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": 2,
+      "title": "clean",
+      "description": "clean the house",
+      "status": "OPEN"
+    },
+    {
+      "id": 3,
+      "title": "study",
+      "description": "study for the exam",
+      "status": "IN_PROGRESS"
+    }
+  ],
+  "Washing": [
+    {
+      "id": 4,
+      "title": "chopping",
+      "description": "cook dinner",
+      "status": "DONE"
+    },
+    {
+      "id": 5,
+      "title": "clean",
+      "description": "clean the house and the garden",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": 6,
+      "title": "study",
+      "description": "study for the exam 2",
+      "status": "OPEN"
+    }
+  ]
+}
