@@ -15,7 +15,7 @@ type MoveTaskParams = { listID: number; taskID: number };
 const ListPage = () => {
   const [lists, setLists] = useState<ListType[]>();
 
-  const { data, ...fetchListResponse } = useQuery({
+  const { data, isRefetching, ...fetchListResponse } = useQuery({
     queryKey: [CONSTANTS.QUERY_KYE.LITS],
     queryFn: async () => {
       const fetchLists = new URL("/api/v1/lists", import.meta.env.VITE_API_URI);
@@ -62,11 +62,15 @@ const ListPage = () => {
     if (fetchListResponse.isSuccess) {
       toast.success("Lists fetched successfully.");
     }
+    if (isRefetching) {
+      toast.loading("Re fetching  lists...");
+    }
   }, [
     data,
     fetchListResponse.isError,
     fetchListResponse.isPending,
     fetchListResponse.isSuccess,
+    isRefetching,
   ]);
 
   const handleDragAndDrop = (
@@ -83,13 +87,6 @@ const ListPage = () => {
       listID: +result.destination.droppableId,
       taskID: result.destination.index,
     };
-
-    // if (lists) {
-    //   const listCopy = lists;
-    //   const [removed] = listCopy[from.listID].tasks.splice(from.taskID, 1);
-    //   listCopy[to.listID].tasks.splice(to.taskID, 0, removed);
-    //   setLists(listCopy);
-    // }
 
     moveTask({ from, to });
 
