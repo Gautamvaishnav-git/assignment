@@ -1,4 +1,5 @@
 import CreateList from "@/components/create-list";
+import ErrorComponent from "@/components/error";
 import List from "@/components/list";
 import { ListType } from "@/interface/task";
 import { CONSTANTS } from "@/lib/constants";
@@ -104,6 +105,15 @@ const ListPage = () => {
 
     if (!to.listID) return;
   };
+
+  if (fetchListResponse.isError)
+    return (
+      <ErrorComponent
+        error={fetchListResponse.error}
+        fallbackError="Error fetching lists."
+        retry={fetchListResponse.refetch}
+      />
+    );
 
   return (
     <div className="pt-8 flex flex-col items-start">
